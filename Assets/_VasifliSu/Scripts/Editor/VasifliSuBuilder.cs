@@ -186,9 +186,9 @@ namespace VasifliSu.EditorTools
             a.iconNext = S("Icons/next"); a.iconPlay = S("Icons/play"); a.iconDoc = S("Icons/doc");
             a.iconExit = S("Icons/exit"); a.iconFlag = S("Environment/flag");
             a.rock = S("Environment/rock"); a.depot = S("Environment/depot");
-            a.deliveryPoint = S("Environment/delivery"); a.splash = S("Environment/splash");
+            a.deliveryPoint = S("Environment/delivery"); a.splash = S("Environment/splash"); a.coin = S("Environment/coin");
             a.music = Clip("music"); a.click = Clip("click"); a.splashSfx = Clip("splash");
-            a.engine = Clip("engine"); a.win = Clip("win"); a.lose = Clip("lose"); a.beep = Clip("beep"); a.go = Clip("go");
+            a.engine = Clip("engine"); a.win = Clip("win"); a.lose = Clip("lose"); a.beep = Clip("beep"); a.go = Clip("go"); a.coinSfx = Clip("coin");
             return CreateOrReplace(Root + "/Resources/GameAssets.asset", a);
         }
 
@@ -227,7 +227,7 @@ namespace VasifliSu.EditorTools
                 new { bld=new[]{"city_shop","city_apartment","city_office","city_hospital","billboard"}, obs=new[]{"obs_barrier","obs_cone","obs_barrel"}, sig=new[]{"sign_caution","sign_brand","sign_slope","sign_delivery"}, snow=false, n="Şehir Merkezi", cu="Merkez Hastanesi", sub="Gece teslimatı", d="Gece vardiyasındaki şehir hastanesine acil su! Şantiye engellerine dikkat.", len=220f, amp=2.8f, fr=0.035f, ro=0.15f, cl=0f, seed=23, fric=0.95f, rocks=6, cnt=7, req=0.5f, par=52f, sky=new Color32(12,16,42,255), gr=new Color32(160,160,172,255), dec=new[]{"streetlamp","tree","streetlamp"}, sp=7f },
                 new { bld=new[]{"barn","house_red","water_tower","billboard"}, obs=new[]{"obs_bale","obs_barrel","obs_crate"}, sig=new[]{"sign_slope","sign_caution","sign_brand","sign_delivery"}, snow=false, n="Gün Batımı Vadisi", cu="Vadi Çiftliği", sub="Dik yokuşlar", d="Vadideki çiftliklere giden yol dik ve kayalarla dolu. Ağırlık merkezine dikkat!", len=260f, amp=4.5f, fr=0.031f, ro=0.3f, cl=0f, seed=37, fric=1f, rocks=9, cnt=8, req=0.5f, par=65f, sky=new Color32(255,145,95,255), gr=new Color32(200,150,60,255), dec=new[]{"autumn_tree","rock_decor","autumn_tree"}, sp=8f },
                 new { bld=new[]{"house_snow","lodge_snow","house_snow","billboard"}, obs=new[]{"obs_ice","obs_cone","obs_barrel"}, sig=new[]{"sign_slippery","sign_brand","sign_slope","sign_delivery"}, snow=true, n="Kartopu Kasabası", cu="Kayak Oteli", sub="Kaygan zemin", d="Karlı kasabanın kayak oteline kışlık su. Kar kaygandır, gazı yavaş ver!", len=280f, amp=5.0f, fr=0.03f, ro=0.28f, cl=0.008f, seed=53, fric=0.45f, rocks=6, cnt=8, req=0.5f, par=75f, sky=new Color32(40,60,120,255), gr=new Color32(245,250,255,255), dec=new[]{"pine_snow","streetlamp","pine_snow","snowman","bush_snow"}, sp=5f },
-                new { bld=new[]{"port_containers","port_crane","port_warehouse","billboard","port_containers"}, obs=new[]{"obs_crate","obs_barrel","obs_tires"}, sig=new[]{"sign_caution","sign_slope","sign_brand","sign_delivery"}, snow=false, n="Mavi Liman", cu="Liman Fabrikası", sub="Final teslimatı", d="Limandaki fabrika işçileri susuz! Konteynerler ve vinçler arasında en uzun ve en sert rota.", len=320f, amp=6.0f, fr=0.028f, ro=0.4f, cl=0f, seed=71, fric=0.9f, rocks=12, cnt=8, req=0.5f, par=90f, sky=new Color32(120,175,225,255), gr=new Color32(200,200,205,255), dec=new[]{"streetlamp","bush","streetlamp"}, sp=8f },
+                new { bld=new[]{"port_containers","port_crane","port_warehouse","billboard","port_containers"}, obs=new[]{"obs_crate","obs_barrel","obs_tires"}, sig=new[]{"sign_caution","sign_slope","sign_brand","sign_delivery"}, snow=false, n="Mavi Liman", cu="Liman Fabrikası", sub="Final teslimatı", d="Limandaki fabrika işçileri susuz! Konteynerler ve vinçler arasında en uzun ve en sert rota.", len=320f, amp=4.8f, fr=0.026f, ro=0.28f, cl=0f, seed=71, fric=0.9f, rocks=10, cnt=8, req=0.45f, par=90f, sky=new Color32(120,175,225,255), gr=new Color32(200,200,205,255), dec=new[]{"streetlamp","bush","streetlamp"}, sp=8f },
             };
             var levels = new LevelData[defs.Length];
             for (int i = 0; i < defs.Length; i++)
@@ -556,7 +556,7 @@ namespace VasifliSu.EditorTools
                 UIFactory.Stretch(inside.rectTransform, 12f);
                 inside.raycastTarget = false;
                 var truck = UIFactory.NewImage("Kamyon", frame.transform, S("Vehicle/truck_icon"), Color.white);
-                UIFactory.Place(truck.rectTransform, new Vector2(0.5f, 0f), new Vector2(-260, 14), new Vector2(270, 160));
+                UIFactory.Place(truck.rectTransform, new Vector2(0.5f, 0f), new Vector2(-360, 14), new Vector2(270, 160));
                 truck.rectTransform.pivot = new Vector2(0.5f, 0f);
                 truck.raycastTarget = false;
                 var shutter = UIFactory.NewImage("Kepenk", frame.transform, S("UI/door_roller"), Color.white);
@@ -744,6 +744,16 @@ namespace VasifliSu.EditorTools
             var marker = UIFactory.NewImage("MinIsaret", wbg.transform, null, Brand.Red);
             marker.rectTransform.sizeDelta = new Vector2(6, 10);
             hud.requiredMarker = marker.rectTransform;
+
+            // Coin sayacı
+            var cp = UIFactory.Panel("CoinPaneli", canvas, new Vector2(250, 84), true);
+            UIFactory.Place(cp.rectTransform, new Vector2(0, 1), new Vector2(28, -224), new Vector2(250, 84));
+            var ci = UIFactory.NewImage("CoinIkon", cp.transform, a.coin, Color.white);
+            UIFactory.Place(ci.rectTransform, new Vector2(0, 0.5f), new Vector2(18, 0), new Vector2(60, 60));
+            ci.rectTransform.pivot = new Vector2(0, 0.5f);
+            hud.coinText = DynLabel(cp.transform, "0", 40, new Color32(255, 190, 40, 255), new Vector2(1, 0.5f), new Vector2(-22, 0), new Vector2(150, 70), TextAnchor.MiddleRight);
+            hud.coinText.rectTransform.pivot = new Vector2(1, 0.5f);
+            hud.coinIcon = ci.rectTransform;
 
             // İlerleme
             hud.progressFill = UIFactory.Bar("Ilerleme", canvas, new Vector2(700, 36), Brand.Green, out var pbg);

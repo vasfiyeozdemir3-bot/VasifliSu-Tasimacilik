@@ -113,6 +113,7 @@ namespace VasifliSu
             BuildGrass(pts);
             BuildWalls(root, pts);
             BuildRocks(root);
+            BuildCoins(root);
             BuildDecor(root);
             BuildBuildings(root);
             BuildSigns(root);
@@ -200,6 +201,34 @@ namespace VasifliSu
             }
         }
 
+        /// <summary>Engellerin arasına 3'lü coin grupları dizer.</summary>
+        void BuildCoins(Transform root)
+        {
+            var a = GameAssets.I;
+            if (a == null || a.coin == null) return;
+            float from = startFlat + 25f, to = data.length - endFlat - 8f;
+            int n = Mathf.Max(2, data.rockCount);
+            var list = new System.Collections.Generic.List<float> { startFlat + 10f };
+            for (int i = 0; i < n - 1; i++) list.Add(Mathf.Lerp(from, to, (i + 1f) / n));
+            int k = 0;
+            foreach (float gx in list)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    float x = gx + j * 1.7f;
+                    var go = new GameObject("Coin_" + (k++));
+                    go.transform.SetParent(root, false);
+                    go.transform.position = new Vector3(x, HeightAt(x) + 1.25f, 0f);
+                    go.transform.localScale = Vector3.one * 0.5f;
+                    var sr = go.AddComponent<SpriteRenderer>();
+                    sr.sprite = a.coin; sr.sortingOrder = 6;
+                    var col = go.AddComponent<CircleCollider2D>();
+                    col.isTrigger = true; col.radius = 0.75f;
+                    go.AddComponent<Coin>();
+                }
+            }
+        }
+
         void PlaceRock(Transform root, Sprite sprite, float x, System.Random rng, int i)
         {
             float r = 0.25f + (float)rng.NextDouble() * 0.2f;
@@ -214,7 +243,7 @@ namespace VasifliSu
             var col = go.AddComponent<CircleCollider2D>();
             col.radius = spriteR * 0.92f;
             if (groundPhysics != null) col.sharedMaterial = groundPhysics;
-            go.AddComponent<GroundSurface>();
+            go.AddComponent<GroundSurface>().isObstacle = true;
         }
 
         void PlaceObstacle(Transform root, Sprite sprite, float x, int i)
@@ -242,7 +271,7 @@ namespace VasifliSu
                 col = c;
             }
             if (groundPhysics != null) col.sharedMaterial = groundPhysics;
-            go.AddComponent<GroundSurface>();
+            go.AddComponent<GroundSurface>().isObstacle = true;
         }
 
         /// <summary>Yol kenarına uyarı ve yön tabelaları dikilir.</summary>

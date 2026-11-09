@@ -18,15 +18,15 @@ MonoBehaviour:
   description: "Limandaki fabrika i\u015F\xE7ileri susuz! Konteynerler ve vin\xE7ler
     aras\u0131nda en uzun ve en sert rota."
   length: 320
-  amplitude: 6
-  frequency: 0.028
-  roughness: 0.4
+  amplitude: 4.8
+  frequency: 0.026
+  roughness: 0.28
   climb: 0
   seed: 71
   groundFriction: 0.9
-  rockCount: 12
+  rockCount: 10
   damacanaCount: 8
-  requiredRatio: 0.5
+  requiredRatio: 0.45
   parTime: 90
   skyColor: {r: 0.47058824, g: 0.6862745, b: 0.88235295, a: 1}
   grassColor: {r: 0.78431374, g: 0.78431374, b: 0.8039216, a: 1}

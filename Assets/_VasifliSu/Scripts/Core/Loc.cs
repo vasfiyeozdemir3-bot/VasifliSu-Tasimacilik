@@ -78,6 +78,7 @@ namespace VasifliSu
             { "En iyi: ", "Best: " }, { "YENİ REKOR!", "NEW RECORD!" }, { "hedef", "target" },
             { "Teslimat tamamlandı", "Delivery completed" }, { "Suyun en az %85'i teslim", "At least 85% of the water delivered" },
             { "Hedef sürede teslim", "Delivered within target time" },
+            { "Toplanan coin: ", "Coins collected: " },
             { "İpucu: Yokuş inerken frene (◄) bas,\nhavadayken gaz/frenle dengele.", "Tip: Brake (◄) when going downhill,\nbalance with gas/brake in the air." },
             { "TEKRAR", "RETRY" }, { "MENÜ", "MENU" }, { "SONRAKİ", "NEXT" },
         };

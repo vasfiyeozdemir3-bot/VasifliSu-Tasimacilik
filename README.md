@@ -30,11 +30,12 @@ Ana Menü (Oyna / Ayarlar / GDD / Çıkış) → Depo Kapıları (bölüm seçim
 
 ## Teknik
 - Unity 6.3 LTS (6000.3.28f1), 2D, Built-in RP, yeni Input System
-- Fizik: `TruckController` – iki `WheelJoint2D` (JointMotor2D + JointSuspension2D), hava kontrolü, 30 km/s hız sınırı
+- Fizik: `TruckController` – iki `WheelJoint2D` (JointMotor2D + JointSuspension2D), hava kontrolü, 34 km/s hız sınırı
 - Kargo: her damacana ayrı `Rigidbody2D`; yere düşen damacana kaybolur
+- Coin sistemi: her bölümde yol boyunca toplanabilir coinler (+50 skor)
 - Prosedürel arazi (`TerrainGenerator`), ScriptableObject bölüm verileri (`LevelData`)
 - Türkçe / English dil desteği, ses ayarları, PlayerPrefs kayıt sistemi
-- Editör menüsü **Vasıflı Su**: 1) Projeyi Kur, 2) Windows Build, 3) WebGL Build, 4) Tanıtım Videosu Kaydet
+- Editör menüsü **Vasıflı Su**: 1) Projeyi Kur, 2) Windows Build, 3) WebGL Build, 4) Tanıtım Videosu Kaydet, 5) 5 Bölümü Otomatik Test Et
 
 ## Klasör düzeni
 ```

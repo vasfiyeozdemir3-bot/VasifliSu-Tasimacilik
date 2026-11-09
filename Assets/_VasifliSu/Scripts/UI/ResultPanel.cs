@@ -11,7 +11,7 @@ namespace VasifliSu
             public bool success;
             public string title, reason;
             public float ratio, time, parTime;
-            public int litres, totalLitres, score, best, stars;
+            public int litres, totalLitres, score, best, stars, coins;
             public bool starRatio, starTime, newBest;
         }
 
@@ -51,7 +51,8 @@ namespace VasifliSu
                 criteriaText.text =
                     "★ " + Loc.T("Teslimat tamamlandı") + "\n" +
                     (r.starRatio ? "★ " : "☆ ") + Loc.T("Suyun en az %85'i teslim") + "\n" +
-                    (r.starTime ? "★ " : "☆ ") + Loc.T("Hedef sürede teslim");
+                    (r.starTime ? "★ " : "☆ ") + Loc.T("Hedef sürede teslim") + "\n" +
+                    "<color=#FFB000>●</color> " + Loc.T("Toplanan coin: ") + r.coins + "  (+" + (r.coins * Coin.ScoreValue) + ")";
             }
             else criteriaText.text = Loc.T("İpucu: Yokuş inerken frene (◄) bas,\nhavadayken gaz/frenle dengele.");
 

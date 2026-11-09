@@ -59,6 +59,7 @@ namespace VasifliSu
         public Sprite depot;
         public Sprite deliveryPoint;
         public Sprite splash;
+        public Sprite coin;
 
         [Header("Sesler")]
         public AudioClip music;
@@ -69,6 +70,7 @@ namespace VasifliSu
         public AudioClip lose;
         public AudioClip beep;
         public AudioClip go;
+        public AudioClip coinSfx;
     }
 
     /// <summary>Vasıflı Su marka renkleri.</summary>

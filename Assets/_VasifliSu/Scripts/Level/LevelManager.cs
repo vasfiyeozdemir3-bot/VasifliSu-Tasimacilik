@@ -22,6 +22,9 @@ namespace VasifliSu
 
         public GameState State { get; private set; }
         public float ElapsedTime { get; private set; }
+        public int Coins { get; private set; }
+        public string LastFailReason { get; private set; }
+        public void AddCoin() { Coins++; }
         public LevelData Data => LevelDatabase.I.levels[levelIndex];
         public bool IsLastLevel => levelIndex >= LevelDatabase.I.Count - 1;
 
@@ -106,7 +109,7 @@ namespace VasifliSu
             int litres = cargo.RemainingLitres;
             float t = ElapsedTime;
             int timeBonus = Mathf.Max(0, Mathf.RoundToInt((Data.parTime * 1.5f - t) * 10f));
-            int score = litres * 10 + Mathf.RoundToInt(ratio * 1000f) + timeBonus;
+            int score = litres * 10 + Mathf.RoundToInt(ratio * 1000f) + timeBonus + Coins * Coin.ScoreValue;
 
             bool starRatio = ratio >= 0.85f;
             bool starTime = t <= Data.parTime;
@@ -122,7 +125,7 @@ namespace VasifliSu
                 reason = Loc.T(Data.customer) + Loc.T(" müşterileri suyuna kavuştu."),
                 ratio = ratio, litres = litres, totalLitres = cargo.TotalLitres,
                 time = t, parTime = Data.parTime, score = score, best = SaveSystem.GetBest(levelIndex),
-                stars = stars, starRatio = starRatio, starTime = starTime, newBest = newBest
+                stars = stars, starRatio = starRatio, starTime = starTime, newBest = newBest, coins = Coins
             };
             StartCoroutine(ShowResultAfter(r, 1.2f));
         }
@@ -131,6 +134,7 @@ namespace VasifliSu
         {
             if (State != GameState.Playing) return;
             State = GameState.Lost;
+            LastFailReason = reason;
             truck.StopEngine();
             InputBridge.Reset();
             if (GameAssets.I) AudioManager.I.Play(GameAssets.I.lose, 0.9f);
@@ -141,7 +145,7 @@ namespace VasifliSu
                 title = Loc.T("TESLİMAT BAŞARISIZ"),
                 reason = reason,
                 ratio = cargo.RemainingRatio, litres = cargo.RemainingLitres, totalLitres = cargo.TotalLitres,
-                time = ElapsedTime, parTime = Data.parTime, score = 0, best = SaveSystem.GetBest(levelIndex)
+                time = ElapsedTime, parTime = Data.parTime, score = 0, best = SaveSystem.GetBest(levelIndex), coins = Coins
             };
             StartCoroutine(ShowResultAfter(r, 1.4f));
         }

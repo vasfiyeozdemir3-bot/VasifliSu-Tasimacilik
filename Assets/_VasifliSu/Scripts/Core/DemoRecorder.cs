@@ -29,11 +29,15 @@ namespace VasifliSu
         }
         int _frames;
         bool _recording;
+        static bool _test;
+        public const int TestMode = 2;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
         {
-            if (PlayerPrefs.GetInt(PrefKey, 0) != 1) return;
+            int mode = PlayerPrefs.GetInt(PrefKey, 0);
+            if (mode != 1 && mode != TestMode) return;
+            _test = mode == TestMode;
             PlayerPrefs.SetInt(PrefKey, 0);
             PlayerPrefs.Save();
             var go = new GameObject("DemoRecorder");
@@ -43,6 +47,12 @@ namespace VasifliSu
 
         void Start()
         {
+            if (_test)
+            {
+                InputBridge.Demo = true;
+                StartCoroutine(TestScript());
+                return;
+            }
             string dir = Path.Combine(Application.dataPath, "..", "Recording");
             Directory.CreateDirectory(dir);
             _dir = dir;
@@ -78,6 +88,7 @@ namespace VasifliSu
 
         IEnumerator Wait(float seconds)
         {
+            if (_test) { yield return new WaitForSecondsRealtime(seconds * 0.3f); yield break; }
             int target = _frames + Mathf.RoundToInt(seconds * Fps);
             while (_frames < target) yield return null;
         }
@@ -139,6 +150,7 @@ namespace VasifliSu
             LevelManager lm = null;
             while ((lm = LevelManager.I) == null) yield return null;
             while (lm.State == GameState.Countdown) yield return null;
+            if (_test) Time.timeScale = 2f;
 
             float driven = 0f;
             bool paused = false;
@@ -146,7 +158,7 @@ namespace VasifliSu
             {
                 Drive(lm);
                 yield return null;
-                driven += 1f / Fps;
+                driven += _test ? Time.deltaTime : 1f / Fps;
                 if (showPause && !paused && driven > 7f)
                 {
                     paused = true;
@@ -162,13 +174,55 @@ namespace VasifliSu
                 yield return Wait(5f);      // sonuç ekranı
         }
 
+        /// <summary>Test modu: 5 bölümü sırayla sonuna kadar otomatik sürer, sonuçları dosyaya yazar.</summary>
+        IEnumerator TestScript()
+        {
+            yield return WaitScene(SceneFlow.MainMenu);
+            var sb = new System.Text.StringBuilder();
+            for (int i = 0; i < 5; i++)
+            {
+                _stuck = 0f; _reverse = 0f;
+                InputBridge.DemoThrottle = 0f;
+                SceneFlow.LoadLevel(i);
+                yield return WaitScene(SceneFlow.LevelScene(i));
+                LevelManager lm = null;
+                while ((lm = LevelManager.I) == null) yield return null;
+                while (lm.State == GameState.Countdown) yield return null;
+                Time.timeScale = 2f;
+                float real = 0f;
+                while (lm.State == GameState.Playing && real < 120f)
+                {
+                    Drive(lm);
+                    yield return null;
+                    real += Time.unscaledDeltaTime;
+                }
+                InputBridge.DemoThrottle = 0f;
+                float left = lm.terrain.FinishX - lm.truck.transform.position.x;
+                string line = (i + 1) + ". bölüm: " + lm.State + " | süre " + lm.ElapsedTime.ToString("0.0") + " sn | su " +
+                              lm.cargo.RemainingLitres + "/" + lm.cargo.TotalLitres + " L | coin " + lm.Coins +
+                              " | kalan yol " + Mathf.RoundToInt(left) + " m" + (lm.State == GameState.Lost ? " | sebep: " + lm.LastFailReason : "");
+                Debug.Log("[Test] " + line);
+                sb.AppendLine(line);
+                Time.timeScale = 1f;
+                yield return new WaitForSecondsRealtime(1f);
+            }
+            string dir = Path.Combine(Application.dataPath, "..", "Recording");
+            Directory.CreateDirectory(dir);
+            File.WriteAllText(Path.Combine(dir, "test_sonuclari.txt"), sb.ToString());
+            InputBridge.Demo = false;
+            Time.timeScale = 1f;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        }
+
         static float _stuck, _reverse;
 
         static void Drive(LevelManager lm)
         {
             var t = lm.truck;
             if (t == null || t.Body == null) return;
-            float dt = 1f / Fps;
+            float dt = _test ? Time.deltaTime : 1f / Fps;
             // Takılırsa kısa bir geri manevra yapıp yeniden hızlanır
             if (_reverse > 0f) { _reverse -= dt; InputBridge.DemoThrottle = -1f; return; }
             if (t.IsGrounded && t.SpeedKmh < 2f) _stuck += dt; else _stuck = 0f;

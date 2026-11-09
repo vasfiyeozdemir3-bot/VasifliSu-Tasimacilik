@@ -22,7 +22,8 @@ namespace VasifliSu
         void OnCollisionEnter2D(Collision2D c)
         {
             if (Lost) return;
-            if (c.collider.GetComponent<GroundSurface>() != null) MarkLost();
+            var g = c.collider.GetComponent<GroundSurface>();
+            if (g != null && !g.isObstacle) MarkLost();
         }
 
         public void MarkLost()

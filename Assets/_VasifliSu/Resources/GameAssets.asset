@@ -45,6 +45,7 @@ MonoBehaviour:
   depot: {fileID: 21300000, guid: 9853bb5b0c8216b48ab1b8e14ce2e5d5, type: 3}
   deliveryPoint: {fileID: 21300000, guid: a82e840bd3d6ec44b9607eab9e1535d7, type: 3}
   splash: {fileID: 21300000, guid: 194b34f5068fe2343801727b382b84da, type: 3}
+  coin: {fileID: 21300000, guid: 75bb04847dfb3374da3a99f3e5ca1376, type: 3}
   music: {fileID: 8300000, guid: 6b25137ca9fc85444bb67eefe6c4207b, type: 3}
   click: {fileID: 8300000, guid: 54b34d1457ae8074ea7ca950b83764a2, type: 3}
   splashSfx: {fileID: 8300000, guid: c8cd07cf3ce287f418e325811ea712f9, type: 3}
@@ -53,3 +54,4 @@ MonoBehaviour:
   lose: {fileID: 8300000, guid: 5614cac8bb0ac50479ca7b8f9c06f5d0, type: 3}
   beep: {fileID: 8300000, guid: d3df5f015b50b6f48885af0272a51dbf, type: 3}
   go: {fileID: 8300000, guid: 0c23cb84395b6b141a5a8158dd90946c, type: 3}
+  coinSfx: {fileID: 8300000, guid: a86a41c3d226bd24282943d71f93a95c, type: 3}

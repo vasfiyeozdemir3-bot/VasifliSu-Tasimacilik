@@ -18,6 +18,10 @@ namespace VasifliSu
         public Text timerText;
         public Text countdownText;
         public Button pauseButton;
+        public Text coinText;
+        public RectTransform coinIcon;
+        int _shownCoins = -1;
+        float _coinPulse;
 
         float _shownWater = 1f;
 
@@ -57,6 +61,15 @@ namespace VasifliSu
                 progressTruck.anchoredPosition = Vector2.zero;
             }
             distanceText.text = Mathf.Max(0, Mathf.RoundToInt(end - truck.transform.position.x)) + " m";
+
+            if (coinText != null && level.Coins != _shownCoins)
+            {
+                if (_shownCoins >= 0) _coinPulse = 1f;
+                _shownCoins = level.Coins;
+                coinText.text = _shownCoins.ToString();
+            }
+            _coinPulse = Mathf.MoveTowards(_coinPulse, 0f, Time.unscaledDeltaTime * 4f);
+            if (coinIcon != null) coinIcon.localScale = Vector3.one * (1f + _coinPulse * 0.35f);
 
             float t = level.ElapsedTime;
             timerText.text = string.Format("{0}:{1:00}", (int)(t / 60), (int)(t % 60));
