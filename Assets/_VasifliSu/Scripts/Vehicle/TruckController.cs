@@ -19,11 +19,11 @@ namespace VasifliSu
 
         [Header("Motor")]
         [Tooltip("İleri yönde maksimum tekerlek hızı (derece/sn)")]
-        public float maxMotorSpeed = 1400f;
+        public float maxMotorSpeed = 1800f;
         [Tooltip("Geri yönde maksimum tekerlek hızı (derece/sn)")]
         public float reverseMotorSpeed = 350f;
         [Tooltip("Tekerlek başına maksimum motor torku")]
-        public float motorTorque = 80f;
+        public float motorTorque = 95f;
         [Tooltip("Motor yönü ters çalışıyorsa işaretle")]
         public bool invertMotor = false;
         [Tooltip("Arka tekerlekten çekiş oranı (önden çekiş = 1 - bu değer)")]
@@ -44,7 +44,7 @@ namespace VasifliSu
         public AudioSource engineSource;
 
         [Tooltip("Azami hız (km/s) — yokuş aşağı da aşılamaz")]
-        public float maxSpeedKmh = 42f;
+        public float maxSpeedKmh = 46f;
         [Tooltip("Gazın tam güce ulaşma süresi (sn) — yumuşak kalkış")]
         public float throttleRamp = 0.6f;
 

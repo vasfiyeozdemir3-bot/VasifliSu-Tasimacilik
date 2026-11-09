@@ -383,9 +383,9 @@ MonoBehaviour:
   frontJoint: {fileID: 4613037445211285554}
   rearWheel: {fileID: 5726094582135764015}
   frontWheel: {fileID: 6830496939859105607}
-  maxMotorSpeed: 1400
+  maxMotorSpeed: 1800
   reverseMotorSpeed: 350
-  motorTorque: 80
+  motorTorque: 95
   invertMotor: 0
   rearDriveShare: 0.6
   suspensionFrequency: 4
@@ -394,7 +394,7 @@ MonoBehaviour:
   maxAirSpin: 220
   centerOfMass: {x: 0, y: -0.35}
   engineSource: {fileID: 834219532661875206}
-  maxSpeedKmh: 42
+  maxSpeedKmh: 46
   throttleRamp: 0.6
 --- !u!82 &834219532661875206
 AudioSource:
