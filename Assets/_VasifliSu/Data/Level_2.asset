@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e56944534a582a489ce9d2cace82b69, type: 3}
+  m_Name: Level_2
+  m_EditorClassIdentifier: Assembly-CSharp::VasifliSu.LevelData
+  levelName: "\u015Eehir Merkezi"
+  subtitle: "Gece teslimat\u0131"
+  customer: Merkez Hastanesi
+  description: "Gece vardiyas\u0131ndaki \u015Fehir hastanesine acil su! \u015Eantiye
+    engellerine dikkat."
+  length: 220
+  amplitude: 2.8
+  frequency: 0.035
+  roughness: 0.15
+  climb: 0
+  seed: 23
+  groundFriction: 0.95
+  rockCount: 6
+  damacanaCount: 7
+  requiredRatio: 0.5
+  parTime: 52
+  skyColor: {r: 0.047058824, g: 0.0627451, b: 0.16470589, a: 1}
+  grassColor: {r: 0.627451, g: 0.627451, b: 0.6745098, a: 1}
+  groundMaterial: {fileID: 2100000, guid: 6a79598f31982e94eb0f18d194958384, type: 2}
+  grassMaterial: {fileID: 2100000, guid: 147bceff3f720834782b7bcd33021fb2, type: 2}
+  backgroundFar: {fileID: 21300000, guid: 69b9b172ded2942459c46f2d7ebb6fe7, type: 3}
+  backgroundNear: {fileID: 21300000, guid: 3a81bde69eca8ca44986a419ff0f0f1e, type: 3}
+  decorSprites:
+  - {fileID: 21300000, guid: c9431fc0e9cdd604db957c2b877fcb40, type: 3}
+  - {fileID: 21300000, guid: dfb88d20f18cb1f438cf9aa1e73044d1, type: 3}
+  - {fileID: 21300000, guid: c9431fc0e9cdd604db957c2b877fcb40, type: 3}
+  decorSpacing: 7
+  buildingSprites:
+  - {fileID: 21300000, guid: 1f99e97efe64fd8459bf785d549c5fa7, type: 3}
+  - {fileID: 21300000, guid: 68d4c621212c4904594c4aeeb79f2e0a, type: 3}
+  - {fileID: 21300000, guid: 13e99394937c13049b23a67bc698ddc1, type: 3}
+  - {fileID: 21300000, guid: 7965ff7a598ef4940a1e7210d745fad6, type: 3}
+  - {fileID: 21300000, guid: 93695a2f91502cd4c9c750265c9cc5a7, type: 3}
+  buildingSpacing: 30
+  obstacleSprites:
+  - {fileID: 21300000, guid: 81b094a370af6744595bc79d6466fedd, type: 3}
+  - {fileID: 21300000, guid: 418c2dcb7b93d574996180995716906e, type: 3}
+  - {fileID: 21300000, guid: 6d5f7d6f8f43ce740a6cc51a3f083937, type: 3}
+  signSprites:
+  - {fileID: 21300000, guid: 2f92129b352d2134592242883b7b725a, type: 3}
+  - {fileID: 21300000, guid: f1f0ff59af9e4b14380f66a87665491e, type: 3}
+  - {fileID: 21300000, guid: 9cb1f7cee66c56a4082c134b39ce0173, type: 3}
+  - {fileID: 21300000, guid: beb0dc06e1252d74ba5eb36eb6469686, type: 3}
+  snowfall: 0

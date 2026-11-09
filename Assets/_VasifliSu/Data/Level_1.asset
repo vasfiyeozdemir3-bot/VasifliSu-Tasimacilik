@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e56944534a582a489ce9d2cace82b69, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: Assembly-CSharp::VasifliSu.LevelData
+  levelName: "Volkan Ete\u011Fi"
+  subtitle: "\xD6\u011Fretici teslimat"
+  customer: "Volkan G\xF6zlemevi"
+  description: "Volkan ete\u011Findeki g\xF6zlemevine ilk teslimat. Kontrolleri \xF6\u011Fren,
+    lav \xE7atlaklar\u0131na dikkat!"
+  length: 170
+  amplitude: 2.2
+  frequency: 0.036
+  roughness: 0.12
+  climb: 0
+  seed: 11
+  groundFriction: 1
+  rockCount: 4
+  damacanaCount: 6
+  requiredRatio: 0.5
+  parTime: 40
+  skyColor: {r: 0.19607843, g: 0.078431375, b: 0.13725491, a: 1}
+  grassColor: {r: 0.27450982, g: 0.21568628, b: 0.22745098, a: 1}
+  groundMaterial: {fileID: 2100000, guid: 33f7abcae62b2b14699d0d38ca4c3773, type: 2}
+  grassMaterial: {fileID: 2100000, guid: 147bceff3f720834782b7bcd33021fb2, type: 2}
+  backgroundFar: {fileID: 21300000, guid: dfee97e2564c1f947b072bb6b39baf94, type: 3}
+  backgroundNear: {fileID: 21300000, guid: abb8654ca4214224ba45215d1becfeec, type: 3}
+  decorSprites:
+  - {fileID: 21300000, guid: feca14d24acbed543b7051d73d29929f, type: 3}
+  - {fileID: 21300000, guid: fe5994c067cc3fd4b93e8921335ccf92, type: 3}
+  - {fileID: 21300000, guid: 293bc1a41157b424599f84f654518f5b, type: 3}
+  decorSpacing: 9
+  buildingSprites:
+  - {fileID: 21300000, guid: e5b7d1e85e860854bbd2e55d2e1d048c, type: 3}
+  - {fileID: 21300000, guid: acd0ff1c119f5624594f9df99bfb879e, type: 3}
+  - {fileID: 21300000, guid: 93695a2f91502cd4c9c750265c9cc5a7, type: 3}
+  - {fileID: 21300000, guid: 293bc1a41157b424599f84f654518f5b, type: 3}
+  buildingSpacing: 30
+  obstacleSprites:
+  - {fileID: 21300000, guid: 73e27dc0cc06b70499cc166b30e8f9ee, type: 3}
+  - {fileID: 21300000, guid: 6d5f7d6f8f43ce740a6cc51a3f083937, type: 3}
+  - {fileID: 21300000, guid: 73e27dc0cc06b70499cc166b30e8f9ee, type: 3}
+  signSprites:
+  - {fileID: 21300000, guid: 2f92129b352d2134592242883b7b725a, type: 3}
+  - {fileID: 21300000, guid: f1f0ff59af9e4b14380f66a87665491e, type: 3}
+  - {fileID: 21300000, guid: 9cb1f7cee66c56a4082c134b39ce0173, type: 3}
+  - {fileID: 21300000, guid: beb0dc06e1252d74ba5eb36eb6469686, type: 3}
+  snowfall: 0

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becc6b9037e8e6440aa7ccdffee17783, type: 3}
+  m_Name: GameAssets
+  m_EditorClassIdentifier: Assembly-CSharp::VasifliSu.GameAssets
+  fontBold: {fileID: 12800000, guid: 15083d3dd7747e3439fc356465a26323, type: 3}
+  fontRegular: {fileID: 12800000, guid: b774760fc2dc0ce42ad3079d3c89bf49, type: 3}
+  logo: {fileID: 21300000, guid: 757606097d4485345ade43f408bf00e7, type: 3}
+  menuBackground: {fileID: 21300000, guid: e5b8b89fc0e9a9f45acce158eed48530, type: 3}
+  button: {fileID: 21300000, guid: 614663d1d72c3f04eaa1dcd9656e42f1, type: 3}
+  buttonAlt: {fileID: 21300000, guid: 6a6e8669833b8d14db5f7b00b58352ea, type: 3}
+  buttonRound: {fileID: 21300000, guid: 8b825914fa71bbc4aa420d0432b04f94, type: 3}
+  panel: {fileID: 21300000, guid: cca0478ae5236094aafe313d2e03778f, type: 3}
+  panelDark: {fileID: 21300000, guid: b5cdd16d13e8f504388b7e3e556216d6, type: 3}
+  barBg: {fileID: 21300000, guid: 06ed237354bd1da43b508d3f81c1b3d4, type: 3}
+  barFill: {fileID: 21300000, guid: d739b584d13c30e47839bbf1d011ef02, type: 3}
+  card: {fileID: 21300000, guid: d73cf5e8f6ff93a4fb43205585733a9c, type: 3}
+  iconWater: {fileID: 21300000, guid: dfbc23d15ef29004384203a53e52aac7, type: 3}
+  iconSpeed: {fileID: 21300000, guid: 7a0e0af9fc579c141b29a3e7b36213b3, type: 3}
+  iconTimer: {fileID: 21300000, guid: ce172df469763a34da7eb2cafb34cacf, type: 3}
+  iconStar: {fileID: 21300000, guid: 33575bf2b5def6243a55ff490cfc5c03, type: 3}
+  iconStarEmpty: {fileID: 21300000, guid: 997922e095327db49b03a0500699c92c, type: 3}
+  iconLock: {fileID: 21300000, guid: a16dfda7ec876da479b6995b9a2dced8, type: 3}
+  iconPause: {fileID: 21300000, guid: e456cbb0e13ba6844b94c7ac7ba318ef, type: 3}
+  iconGas: {fileID: 21300000, guid: 9702b1dee8e6a6244a48853bdd27b8ad, type: 3}
+  iconBrake: {fileID: 21300000, guid: 02805ddd89a41834aae1b0bc8c17aa94, type: 3}
+  iconSettings: {fileID: 21300000, guid: cca84237879a5a84bb5d83ab21edd37c, type: 3}
+  iconHome: {fileID: 21300000, guid: c967594e0b7a31b448171c218dfe8550, type: 3}
+  iconRetry: {fileID: 21300000, guid: 89ff89c135e20724c993c54a5a8ff7ee, type: 3}
+  iconNext: {fileID: 21300000, guid: 586c262387b4c5b44a36fdd90948548b, type: 3}
+  iconPlay: {fileID: 21300000, guid: 006b7b0838726934a92cd838d169909e, type: 3}
+  iconDoc: {fileID: 21300000, guid: 9b6252acdb5c05046ab4a055275c2760, type: 3}
+  iconExit: {fileID: 21300000, guid: abbc1d3e0fa606d4e99363f8f13961ef, type: 3}
+  iconFlag: {fileID: 21300000, guid: ab703cfba792e5144ae9ca2c3dfa17cc, type: 3}
+  rock: {fileID: 21300000, guid: 0ec7b74bb2545a4429608698f8458dd4, type: 3}
+  depot: {fileID: 21300000, guid: 9853bb5b0c8216b48ab1b8e14ce2e5d5, type: 3}
+  deliveryPoint: {fileID: 21300000, guid: a82e840bd3d6ec44b9607eab9e1535d7, type: 3}
+  splash: {fileID: 21300000, guid: 194b34f5068fe2343801727b382b84da, type: 3}
+  music: {fileID: 8300000, guid: 6b25137ca9fc85444bb67eefe6c4207b, type: 3}
+  click: {fileID: 8300000, guid: 54b34d1457ae8074ea7ca950b83764a2, type: 3}
+  splashSfx: {fileID: 8300000, guid: c8cd07cf3ce287f418e325811ea712f9, type: 3}
+  engine: {fileID: 8300000, guid: 1094002572afce24188c154449611d52, type: 3}
+  win: {fileID: 8300000, guid: e280c296f2e10114091f990bf627273d, type: 3}
+  lose: {fileID: 8300000, guid: 5614cac8bb0ac50479ca7b8f9c06f5d0, type: 3}
+  beep: {fileID: 8300000, guid: d3df5f015b50b6f48885af0272a51dbf, type: 3}
+  go: {fileID: 8300000, guid: 0c23cb84395b6b141a5a8158dd90946c, type: 3}

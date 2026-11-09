@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e56944534a582a489ce9d2cace82b69, type: 3}
+  m_Name: Level_5
+  m_EditorClassIdentifier: Assembly-CSharp::VasifliSu.LevelData
+  levelName: Mavi Liman
+  subtitle: "Final teslimat\u0131"
+  customer: "Liman Fabrikas\u0131"
+  description: "Limandaki fabrika i\u015F\xE7ileri susuz! Konteynerler ve vin\xE7ler
+    aras\u0131nda en uzun ve en sert rota."
+  length: 320
+  amplitude: 6
+  frequency: 0.028
+  roughness: 0.4
+  climb: 0
+  seed: 71
+  groundFriction: 0.9
+  rockCount: 12
+  damacanaCount: 8
+  requiredRatio: 0.5
+  parTime: 90
+  skyColor: {r: 0.47058824, g: 0.6862745, b: 0.88235295, a: 1}
+  grassColor: {r: 0.78431374, g: 0.78431374, b: 0.8039216, a: 1}
+  groundMaterial: {fileID: 2100000, guid: 2a1ea2fed55b6e140b72c58e0b22bea4, type: 2}
+  grassMaterial: {fileID: 2100000, guid: 147bceff3f720834782b7bcd33021fb2, type: 2}
+  backgroundFar: {fileID: 21300000, guid: 49ace687e172a0a46ad72f53fba95e83, type: 3}
+  backgroundNear: {fileID: 21300000, guid: 06d67ee095559284fb68fd10cf4eb6fd, type: 3}
+  decorSprites:
+  - {fileID: 21300000, guid: c9431fc0e9cdd604db957c2b877fcb40, type: 3}
+  - {fileID: 21300000, guid: bb78f7013a5258e48a9a4d5c274058cb, type: 3}
+  - {fileID: 21300000, guid: c9431fc0e9cdd604db957c2b877fcb40, type: 3}
+  decorSpacing: 8
+  buildingSprites:
+  - {fileID: 21300000, guid: 4ca5d204efd59b34f98f44a28aa53263, type: 3}
+  - {fileID: 21300000, guid: 0ce9a4637abeca345b72a6afddb48e03, type: 3}
+  - {fileID: 21300000, guid: 157f0682510cc834ba3c2e18f3a7cb6b, type: 3}
+  - {fileID: 21300000, guid: 93695a2f91502cd4c9c750265c9cc5a7, type: 3}
+  - {fileID: 21300000, guid: 4ca5d204efd59b34f98f44a28aa53263, type: 3}
+  buildingSpacing: 30
+  obstacleSprites:
+  - {fileID: 21300000, guid: 66632a6315317cd47826eb3f3e33d703, type: 3}
+  - {fileID: 21300000, guid: 6d5f7d6f8f43ce740a6cc51a3f083937, type: 3}
+  - {fileID: 21300000, guid: 15ba6fc95ff06a54cbb221c5cede713a, type: 3}
+  signSprites:
+  - {fileID: 21300000, guid: 2f92129b352d2134592242883b7b725a, type: 3}
+  - {fileID: 21300000, guid: 9cb1f7cee66c56a4082c134b39ce0173, type: 3}
+  - {fileID: 21300000, guid: f1f0ff59af9e4b14380f66a87665491e, type: 3}
+  - {fileID: 21300000, guid: beb0dc06e1252d74ba5eb36eb6469686, type: 3}
+  snowfall: 0

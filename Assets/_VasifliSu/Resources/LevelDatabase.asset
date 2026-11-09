@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b953a54fd1b8e45afb69a4d0e35ffa, type: 3}
+  m_Name: LevelDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::VasifliSu.LevelDatabase
+  levels:
+  - {fileID: 11400000, guid: 3fd3ec67b732fab44983f16e3d3d9084, type: 2}
+  - {fileID: 11400000, guid: b4f5432f474cddc4ea7b021e69cc653f, type: 2}
+  - {fileID: 11400000, guid: 898bf5d8cdcfb064290f988e9f6488b0, type: 2}
+  - {fileID: 11400000, guid: 652302e41f0536146b83c18163a34120, type: 2}
+  - {fileID: 11400000, guid: 52f18672f9a9f0849b1207839aaf9374, type: 2}
